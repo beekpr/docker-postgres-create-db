@@ -15,11 +15,11 @@ fi
 
 cat > create.sql << EOF
 
-CREATE ROLE ${databaseName} with LOGIN PASSWORD '${password}';
-GRANT ${databaseName} TO ${PGUSER};
+CREATE ROLE "${databaseName}" with LOGIN PASSWORD '${password}';
+GRANT "${databaseName}" TO "${PGUSER}";
 
-CREATE DATABASE ${databaseName} with OWNER ${databaseName} ENCODING 'UTF8';
-REVOKE ${databaseName} FROM ${PGUSER};
+CREATE DATABASE "${databaseName}" with OWNER "${databaseName}" ENCODING 'UTF8';
+REVOKE "${databaseName}" FROM "${PGUSER}";
 EOF
 
 exec psql -f create.sql
